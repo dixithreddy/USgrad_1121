@@ -1,0 +1,20 @@
+import React from 'react';
+import { Auth0Provider } from '@auth0/auth0-react';
+import App from './App';
+
+const auth0Domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const auth0ClientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
+function AuthWrapper() {
+  return (
+    <Auth0Provider
+      domain={auth0Domain}
+      clientId={auth0ClientId}
+      redirectUri={window.location.origin}
+    >
+      <App />
+    </Auth0Provider>
+  );
+}
+
+export default AuthWrapper;
